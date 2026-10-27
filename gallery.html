@@ -1,0 +1,6 @@
+---
+layout: page
+title: Gallery
+---
+<div class="grid">{% for p in site.data.gallery.photos %}<img src="{{ p.image | relative_url }}" alt="{{ p.alt }}" loading="lazy">{% endfor %}</div>
+{% unless site.data.gallery.photos.size > 0 %}<p>Photos coming soon.</p>{% endunless %}

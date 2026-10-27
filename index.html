@@ -1,0 +1,7 @@
+---
+layout: default
+---
+{% assign h = site.data.home %}
+<section class="hero"><h1>{% for w in h.tagline %}<span><b>{{ w | slice: 0 }}</b>{{ w | slice: 1, 30 }}</span>{% endfor %}</h1><img src="{{ h.hero_image | relative_url }}" alt="Dynamic Dance performing"></section>
+<section class="wrap story"><div><h2>{{ h.story_heading }}</h2>{{ h.story_text | markdownify }}</div><img src="{{ h.story_image | relative_url }}" alt="Dynamic Dance members"></section>
+<section class="band"><div class="wrap"><h2>{{ h.follow_heading }}</h2><p>{{ h.follow_text }}</p><a class="btn" href="{{ site.data.settings.instagram }}">@umdynamic on Instagram</a></div></section>
