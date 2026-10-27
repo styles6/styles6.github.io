@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}"></head><body>
+{% assign s = site.data.settings %}
+<header><a class="brand" href="{{ '/' | relative_url }}"><img src="{{ s.logo | relative_url }}" alt="Dynamic Dance"></a>
+<nav aria-label="Main">
+{% assign nav = "index.html|Home,opportunities.html|Opportunities,workshops.html|Workshops,gallery.html|Gallery,rip-the-floor.html|Rip The Floor 2025,competition-guidelines.html|RTF Competition Guidelines,contact.html|Contact" | split: "," %}
+{% for n in nav %}{% assign p = n | split: "|" %}<a href="{{ p[0] | relative_url }}"{% if page.path == p[0] %} aria-current="page"{% endif %}>{{ p[1] }}</a>{% endfor %}
+</nav></header>
+<main>{{ content }}</main>
+<footer><p>Dynamic Dance &middot; University of Maryland, College Park, MD 20742</p>
+<p><a href="{{ s.instagram }}">Instagram</a> <a href="{{ s.tiktok }}">TikTok</a> <a href="{{ s.youtube }}">YouTube</a> <a href="mailto:{{ s.email }}">{{ s.email }}</a></p></footer>
+</body></html>
